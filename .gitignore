@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# astro build / cache
+dist/
+.astro/
+
+# logs
+*.log
+npm-debug.log*
+
+# env / secrets
+.env
+.env.*
+*.key
+*.pem
+
+# local-only agent context (never committed)
+CLAUDE.md
+.claude/
+.claude.local.md
+
+# editor / os
+.DS_Store
+.vscode/
+.idea/
+
+# CI artifacts
+nova-output.json
+
+# upstream source reference clones (not part of this monorepo)
+sites/*-src/
