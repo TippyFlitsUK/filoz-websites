@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
   site: 'https://filoz.org',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   build: {
     format: 'directory',
   },
