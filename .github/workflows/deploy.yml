@@ -102,10 +102,12 @@ jobs:
         run: npm install -g "filecoin-nova@${NOVA_VERSION}"
 
       # docs site only: regenerate typedoc Reference tree from synapse-sdk so
-      # docs.filecoin.cloud stays in sync with the latest published SDK. See
-      # docs/cross-repo/ for the cross-repo dispatch plan.
+      # docs.filecoin.cloud stays in sync when the SDK changes. The committed
+      # reference/ snapshot is the fallback for normal pushes — this step only
+      # fires when FilOzone/synapse-sdk dispatches the sdk-released event.
+      # See docs/cross-repo/ for the cross-repo dispatch plan.
       - name: Fetch Reference from synapse-sdk
-        if: matrix.site == 'docs'
+        if: matrix.site == 'docs' && github.event_name == 'repository_dispatch'
         run: |
           set -euo pipefail
           SDK_REF="${{ github.event.client_payload.sha || 'main' }}"
