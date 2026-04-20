@@ -1,5 +1,5 @@
 {
   "cf_zone_id": "ec64112d49365c91cf3c8db1424b5632",
-  "hostname": "staging.dealbot.filecoincloud.io",
-  "ens_name": "staging-dealbot.filnova.eth"
+  "hostname": "dealbot-staging.filecoincloud.io",
+  "ens_name": "dealbot-staging.filnova.eth"
 }

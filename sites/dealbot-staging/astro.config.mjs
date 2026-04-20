@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 const isProd = process.env.PROD_BUILD === '1'
 
 export default defineConfig({
-  site: isProd ? 'https://staging.dealbot.filoz.org' : 'https://staging.dealbot.filecoincloud.io',
+  site: isProd ? 'https://staging.dealbot.filoz.org' : 'https://dealbot-staging.filecoincloud.io',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
   integrations: [react(), sitemap()],

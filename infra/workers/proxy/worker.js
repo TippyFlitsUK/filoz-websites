@@ -24,7 +24,7 @@ const D1_BY_HOST = {
 // backend lives on a separate origin (e.g. NestJS backend for dealbot).
 const API_PROXY_BY_HOST = {
   'dealbot.filecoincloud.io': 'https://dealbot.filoz.org',
-  'staging.dealbot.filecoincloud.io': 'https://staging.dealbot.filoz.org',
+  'dealbot-staging.filecoincloud.io': 'https://staging.dealbot.filoz.org',
   'dealbot.filoz.org': 'https://dealbot.filoz.org',
   'staging.dealbot.filoz.org': 'https://staging.dealbot.filoz.org',
 }
