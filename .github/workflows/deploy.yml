@@ -173,13 +173,13 @@ jobs:
           NOVA_RPC_URL: ${{ secrets.NOVA_RPC_URL }}
         run: |
           ENS_NAME=$(jq -er .ens_name sites/${{ matrix.site }}/deploy.json)
-          for attempt in 1 2 3; do
+          for attempt in 1 2 3 4 5; do
             if nova ens "${{ steps.nova.outputs.cid }}" --ens "$ENS_NAME"; then
               exit 0
             fi
-            if [ $attempt -lt 3 ]; then
-              echo "nova ens attempt $attempt failed; retrying in 15s (RPC load-balancer lag is common)..."
-              sleep 15
+            if [ $attempt -lt 5 ]; then
+              echo "nova ens attempt $attempt failed; retrying in 60s (tx may still be pending on mainnet)..."
+              sleep 60
             fi
           done
           exit 1
