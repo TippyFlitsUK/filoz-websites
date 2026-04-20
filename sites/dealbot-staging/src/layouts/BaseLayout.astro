@@ -7,6 +7,7 @@ const {
   title = 'DealBot — Filecoin storage deal analytics',
   description = 'Live performance metrics for automated Filecoin storage deals across Synapse storage providers.',
 } = Astro.props
+const isStaging = import.meta.env.PROD_BUILD !== '1'
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +17,20 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex, nofollow" />
+    {isStaging && <meta name="robots" content="noindex, nofollow" />}
     <script is:inline src="/runtime-config.js"></script>
+    <script is:inline>
+      (function () {
+        var cfg = window.__DEALBOT_CONFIG__ || {};
+        var domain = cfg.PLAUSIBLE_DATA_DOMAIN;
+        if (!domain) return;
+        var s = document.createElement('script');
+        s.defer = true;
+        s.src = 'https://plausible.io/js/script.js';
+        s.setAttribute('data-domain', domain);
+        document.head.appendChild(s);
+      })();
+    </script>
   </head>
   <body>
     <div id="root">
