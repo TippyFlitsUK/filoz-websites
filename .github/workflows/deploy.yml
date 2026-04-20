@@ -60,6 +60,10 @@ jobs:
       - name: Upload shared Worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          FILBEAM_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_FILBEAM_ACCOUNT_ID }}
+          FILBEAM_D1_TOKEN: ${{ secrets.CLOUDFLARE_FILBEAM_TOKEN }}
+          D1_MAINNET: ${{ secrets.CLOUDFLARE_D1_MAINNET }}
+          D1_CALIBRATION: ${{ secrets.CLOUDFLARE_D1_CALIBRATION }}
         run: infra/workers/proxy/deploy-worker.sh
 
   deploy-sites:
