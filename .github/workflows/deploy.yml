@@ -6,5 +6,12 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
-    uses: FilOzone/filecoin-nova/.github/workflows/deploy-sites.yml@v0.7.4
-    secrets: inherit
+    uses: FilOzone/filecoin-nova/.github/workflows/deploy-sites.yml@v0.7.5
+    # Cross-org call (FilOzone ↔ TippyFlitsUK): `inherit` silently drops
+    # secrets, so each one must be explicit-mapped.
+    secrets:
+      NOVA_PIN_KEY:         ${{ secrets.NOVA_PIN_KEY }}
+      NOVA_WALLET_ADDRESS:  ${{ secrets.NOVA_WALLET_ADDRESS }}
+      NOVA_ENS_KEY:         ${{ secrets.NOVA_ENS_KEY }}
+      NOVA_RPC_URL:         ${{ secrets.NOVA_RPC_URL }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
